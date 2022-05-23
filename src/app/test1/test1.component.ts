@@ -73,7 +73,7 @@ import { sample } from 'rxjs';
 //template refernece variables: used to give user values typed in 
 // html  to the classes
 
-// two way binding: [()]
+// two way binding: []
 
 
 export class Test1Component implements OnInit {
