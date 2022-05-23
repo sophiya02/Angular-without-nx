@@ -8,6 +8,7 @@ import { Test1Component } from './test1/test1.component';
 import { StructuralDerivativesComponent } from './structural-derivatives/structural-derivatives.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeService } from './employee.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

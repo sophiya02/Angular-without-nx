@@ -1,6 +1,5 @@
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
-import { Data } from '@angular/router';
-import { O_DIRECTORY } from 'constants';
+import { Component,  OnInit } from '@angular/core';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -16,18 +15,16 @@ import { O_DIRECTORY } from 'constants';
 })
 export class EmployeeListComponent implements OnInit {
 
-  employees=[
-    {"id":1, "name":"Andrew1", "age":30},
-    {"id":2, "name":"Andrew2", "age":31},
-    {"id":3, "name":"Andrew3", "age":32}, 
-    {"id":4, "name":"Andrew4", "age":33},
-    {"id":5, "name":"Andrew5", "age":34},
-  ]
-
-  constructor() { }
+  employees: { "id": number, "name":string, "age":number}[] = [];
+//dependency
+  constructor( private _emplyeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    
+    //we need to make use of _employeeService instance and fetch the data
+    this.employees = this._emplyeeService.getEmployees();
   }
+  //ngOnInit, afterView, allDecay are lifecycle events;
 
 }
 // Programming principles: 1)Dry
@@ -40,3 +37,39 @@ export class EmployeeListComponent implements OnInit {
 // 2) implement application logic-reusable code independent of HTML component (only the logic part not the output view)
 // 3) external interaction: connect to data base 
 // naming convention : ends with: .service.ts
+// how to use service? === by dependency injection 
+// why DI(dependency injection???)
+//lets say car class needs engine and tire which are also a class and car class has engine and tire as variables and constructor for engine and tires eg: class car{
+//   engine ;
+//   tires ;
+//   constructor(){
+//     this.engine= new engine();
+//     this.tires= new tires();
+//   }
+// }
+// class engine{
+//   constructor(){};
+// }
+// class tire{
+//   constructor(){};
+// }
+// now lets suppose engine constructor needs parameter, so if we change engine we need to change car as well therefor our code is not flexible and we use dependency injection 
+//DI as design pattern
+//DI is a coding pattern in which a class receives its dependencies from external sources rather than creating them itself.
+// so here we now have
+// class car{
+  //   engine ;
+  //   tires ;
+  //   constructor(engine, tires){
+  //     this.engine= engine;
+  //     this.tires=tires;
+  //   }
+  // }
+
+  // but now we need to create these dependency ourself, 
+  // like depA, depB, depC, depD, depE(depD)..and so on 
+  // newCar(depA, depB, depC, depD, depE) so to overcome this load we need angular's dependency framework
+  //steps how to use service:
+  //1) create the service 
+  //2) register the service with angular built in injector class
+  //3) declare the service as dependency in the class that needs it 
