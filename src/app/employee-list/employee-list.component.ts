@@ -22,7 +22,18 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit(): void {
     
     //we need to make use of _employeeService instance and fetch the data
-    this.employees = this._emplyeeService.getEmployees();
+    // this.employees = this._emplyeeService.getEmployees();
+    // this._emplyeeService.getEmployees().subscribe(data=>{
+    //   this.employees=data;
+
+    //   // console.log(data);
+    // },
+    // err => console.log(err));
+    this._emplyeeService.getEmployees().subscribe({
+      next: data=>{this.employees=data},
+      error: (err)=>console.log(err)
+    });
+  
   }
   //ngOnInit, afterView, allDecay are lifecycle events;
 
