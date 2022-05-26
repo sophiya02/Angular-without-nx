@@ -5,11 +5,11 @@ import { EmployeeService } from '../employee.service';
   selector: 'app-employee-list',
   // templateUrl: './employee-list.component.html',
   template:`
-     <!-- <h2>Welcome to EmployeeList</h2>
+      <h2>Welcome to EmployeeList</h2>
       <h3>Employee List</h3>
       <ul *ngFor="let emp of employees">
       <li>{{emp.name}}</li>
-      </ul>-->
+      </ul>
   `,
   styleUrls: ['./employee-list.component.css']
 })

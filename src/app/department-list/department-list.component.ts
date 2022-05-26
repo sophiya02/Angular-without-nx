@@ -3,7 +3,7 @@ import {  Router, ActivatedRoute, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-department-list',
   template: `
-    <!--<h3>
+    <h3>
       Department List
     </h3>
     <ul class="items">
@@ -11,7 +11,7 @@ import {  Router, ActivatedRoute, ParamMap } from '@angular/router';
     <span class="badge">{{dep.id}} </span>{{dep.name}}
     </li>
     </ul>
-    -->
+    
 
   `,
   styles: [

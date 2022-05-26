@@ -11,6 +11,8 @@ import { EmployeeService } from './employee.service';
 import {HttpClientModule} from '@angular/common/http';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { MaterialModule } from './material/material.module';
+import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
+import { DepartmentContactComponent } from './department-contact/department-contact.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { MaterialModule } from './material/material.module';
     StructuralDerivativesComponent,
     PipeComponent,
     routingComponents,
-    DepartmentDetailComponent
+    DepartmentDetailComponent,
+    DepartmentOverviewComponent,
+    DepartmentContactComponent
   ],
   imports: [
     BrowserModule,
